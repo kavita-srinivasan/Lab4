@@ -1,4 +1,4 @@
-/*
+/**
  * The following code needs a lot of TLC. So give it some!
  *
  * 1. Fix all checkstyle errors
@@ -8,19 +8,28 @@
  * 5. Remove unnecessary comments as appropriate
  */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+public class ReclamationProject {
+    /**
+     * Explain what this is supposed to do.
+     * @param a Describe what a is.
+     * @param b Describe what b is.
+     * @return Tell what is supposed to be returned
+     */
+    static String doit(final String a, final String b) {
+        if (a.length() > b.length()) {
+            String c = a; // move what's in a to c
+            a = b; b = c;
+        }
+        String r = "";
+
+        for (int i = 0; i < a.length(); i++) {
+            for (int j = a.length() - i; j > 0; j--) {
+                for (int k = 0; k < b.length() - j; k++) {
+                    if (a.regionMatches(i, b, k, j) && j > r.length()) {
+                        r = a.substring(i, i + j);
+                    }
+                }
+            } // Ah yeah
+        } return r;
+    }
 }
